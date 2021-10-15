@@ -1,0 +1,405 @@
+body{
+    color:black;
+    font-family: 'Nunito Semibold';
+    text-align: center;
+}
+/*Mobile layout*/
+#content{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+    grid-template-areas:
+        "nav nav nav nav"
+        "header header header header"
+        "footer footer footer footer"
+        "main main main main"
+        "main main main main"
+        
+}
+#content > *{
+    padding: 30px;
+}
+header{
+    grid-area: header;
+    font-size: 60px;
+    font: bold;
+    color: #130f91;
+}
+
+main{
+    grid-area: main;
+}
+
+main .page{
+    display: grid;
+    grid-template-columns: repeat(auto, auto);
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+    padding-bottom: 5%;
+}
+main .page > *{
+    text-align: left;
+    margin-top: 5%
+}
+
+
+main h1{
+    font-size: 30pt;
+    box-shadow: 0 4px 2px -2px gray !important;
+
+}
+main h2{
+    font-size: 20pt;
+}
+main p{
+    font: 12pt;
+}
+#menuPage {
+    margin-top: 1% !important;
+}
+#menuPage img {
+    box-shadow: none;
+}
+
+nav{
+    grid-area: nav;
+    font-size: 30pt;
+}
+
+#menu button {
+    border: none;
+    font-size: 20pt;
+    padding: 1em;
+    margin: -1em;
+    color: grey;
+    background-color: transparent;
+}
+
+#menu {
+    box-shadow: 0 5px 1px -2px grey !important;
+}
+
+#menu #menuOptions{
+    display: grid;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    justify-content: space-around;
+    max-width: 100%;
+}
+
+#menu #pill{
+    background-color: aqua;
+    padding: 1.4em;
+    margin: -1.4em;
+    margin-right: 25px;
+    width: 15px;
+    border-radius: 12px;
+    background-color: transparent;
+    box-shadow: 0px 0px 20px black;
+    padding-bottom: 13px;
+    position: relative;
+}
+#rules > *{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#rule5 > * {
+    align-self: center;
+}
+#rule5 .image {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#algorithm {
+    font-size: 16pt;
+}
+
+.coding {
+    display: flex;
+    border-left: 5px solid red;
+    font-family: monospace;
+    justify-content: top;
+    font-size: 12pt;
+    padding-left: 5px;
+    margin-left: 2%;
+}
+.coding .codeNum {
+    font-family: monospace;
+    color: grey;
+    display: flex;
+    flex-direction: column;
+}
+.coding .codeNum > div {
+    text-align: right;
+}
+
+.codeBlock {
+    padding-left: 5px;
+    text-align: left;
+    margin-top: -17px;
+}
+
+#buttonList button{
+    height: 70px;
+    width: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14pt;
+    color: black;
+    background-color: white;
+    border-radius: 3px;
+}
+
+#patternList {
+    border-radius: 3px;
+    border-color: black;
+    height: 400px;
+    overflow: scroll;
+    background-color: black;
+    color: white;
+    font-size: 11pt;
+    width: 110%;
+    margin-left: -5%;
+}
+#patternList ol {
+    margin-left: 5%;
+}
+
+video:focus {
+    outline:none;
+}
+
+img {
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px black;
+}
+
+footer{
+    grid-area: footer;
+}
+
+/* desktop grid */
+@media screen and (min-width: 760px){
+    #content{
+        display: grid;
+        grid-template-columns: 1fr 3fr 3fr 3fr;
+        grid-auto-rows: 100px 350px 2fr 1fr 90px;
+        grid-gap: 2px;
+        max-width: 100%;
+        margin: 0 auto;
+        grid-template-areas:
+            "nav nav nav nav"
+            "header header header header"
+            "main main main main"
+            "main main main main"
+            "footer footer footer footer";
+    }
+
+    #content > *{
+        padding: 30px;
+    }
+    header{
+        grid-area: header;
+        font-size: 60px;
+        font: bold;
+        color: #130f91;
+    }
+
+    main{
+        grid-area: main;
+    }
+
+    main .page{
+        display: grid;
+        grid-template-columns: repeat(auto, auto);
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 2%;
+        padding-bottom: 5%;
+        margin-left: 10%;
+        margin-right: 10%;
+        box-shadow: 0px 0px 20px black;
+    }
+    main .page > *{
+        text-align: left;
+        margin-top: 5%
+    }
+
+
+    main h1{
+        font-size: 30pt;
+        box-shadow: 0 4px 2px -2px gray !important;
+
+    }
+    main h2{
+        font-size: 20pt;
+    }
+    main p{
+        font: 12pt;
+    }
+    #menuPage {
+        margin-top: 1% !important;
+    }
+    #menuPage img {
+        box-shadow: none;
+    }
+
+    nav{
+        grid-area: nav;
+        font-size: 20pt;
+    }
+
+    #menu button {
+        border: none;
+        font-size: 20pt;
+        padding: 1em;
+        margin: -1em;
+        color: grey;
+        background-color: transparent;
+    }
+
+    #menu {
+        box-shadow: 0 5px 1px -2px grey !important;
+    }
+
+    #menu #menuOptions{
+        display: grid;
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        justify-content: space-around;
+        max-width: 100%;
+    }
+
+    #menu #pill{
+        background-color: aqua;
+        padding: 1.2em;
+        margin: -1.4em;
+        width: 6%;
+        border-radius: 100px;
+        background-color: transparent;
+        box-shadow: 0px 0px 20px black;
+        padding-bottom: 13px;
+        position: relative;
+    }
+    #rules {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 175px 1fr 1fr 1fr;
+        grid-gap: 30px;
+        grid-template-areas:
+        "ti ti" 
+        "r1 r2"
+        "r3 r4"
+        "r5 r5";
+    }
+
+    #rules > *{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #rulesTitle {
+        grid-area: ti;
+    }
+
+    #rule1 {
+        grid-area: r1;
+    }
+    #rule2 {
+        grid-area: r2;
+
+    }
+    #rule3 {
+        grid-area: r3;
+    }
+    #rule4 {
+        grid-area: r4;
+    }
+    #rule5 {
+        grid-area: r5;
+    }
+    #rule5 > * {
+        align-self: center;
+    }
+    #rule5 .image {
+        width: 65%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    
+    .coding {
+        display: flex;
+        border-left: 5px solid red;
+        font-family: monospace;
+        justify-content: top;
+        font-size: 12pt;
+        padding-left: 5px;
+        margin-left: 2%;
+    }
+    .coding .codeNum {
+        font-family: monospace;
+        color: grey;
+        display: flex;
+        flex-direction: column;
+    }
+    .coding .codeNum > div {
+        text-align: right;
+    }
+
+    .codeBlock {
+        padding-left: 5px;
+        text-align: left;
+        margin-top: -17px;
+    }
+
+    #buttonList button{
+        height: 25px;
+        width: auto;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 14pt;
+        color: black;
+        background-color: white;
+        border-radius: 3px;
+    }
+
+    #patternList {
+        border-radius: 3px;
+        border-color: black;
+        height: 400px;
+        overflow: scroll;
+        background-color: black;
+        color: white;
+        font-size: 14pt;
+    }
+    #patternList ol {
+        margin-left: 5%;
+    }
+
+    video:focus {
+        outline:none;
+    }
+
+    img {
+        border-radius: 5px;
+        box-shadow: 0px 0px 20px black;
+    }
+
+    footer{
+        grid-area: footer;
+    }
+
+}

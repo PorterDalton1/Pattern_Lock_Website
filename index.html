@@ -1,0 +1,276 @@
+<!--
+    This was hands down the hardest project I've done yet. I was overly ambitious and tried doing too much for
+    this assignment. I made many assets (pictures and videos), many of which didn't make it in. At first when
+    I began this project I had too many ideas. 
+    
+    First of all I wanted the last section "Running and Displaying  the Patterns" to include a 3x3 grid where 
+    when you clicked on one of the instructions, it would draw the instruction on a board for you. I was making 
+    good progress on that but eventually I realized that the work that needed to be done for that just wasn't 
+    feasible with the amount of time I had.
+
+    Second, when I was half of the way through I realized my general format wasn't too great, so I took a couple
+    hours just to make sure the formatting made more since.
+
+    And lastly, my biggest mistake of all that took WAY too much time was the code blocks in the "algorithm"
+    section. I looked forever but I couldn't find a way to get javascript to loop through a tag to detect and
+    highlight certain words to change their color. Instead I went through by hand and individually color-coded
+    each and every word I needed by hand. 
+
+    All said and done I'm happy with how it turned out. I learned a lot and I now know how to better scope a 
+    project like this. 
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/main.css"> 
+    </head>
+    <title>Pattern Lock</title>
+    <body>
+        <div id="content">
+            <header>
+                <video width="200" height="200" autoplay="1" muted style="pointer-events: none;">
+                    <source src="./video/Pattern_black_on_white_fin.mp4">
+                </video>
+                <div>Cracking the Pattern Lock</div>
+            </header>
+            <main>
+                <!--Section 1-->
+                <section id="menuPage" class="page">
+                    <h1>Menu</h1>
+                    <h2>About this Website</h2>
+                    <p>This website is an exploration on how to get all possible combinations of a 3x3 pattern lock.</p>
+                    <img src="./img/lock.png">
+                    <h2>Sections in the Website</h2>
+                    <h3>Rules</h3>
+                        <p>
+                            This goes over the restrictions pattern locks face compared to other combination locks. There 
+                            are basic graphics to help guide the user and help them understand how pattern locks work.
+                        </p>
+                    <h3>Algorithm</h3>
+                    <p>
+                        This part of the website goes in depth on how to cycle through every pattern lock combination. All
+                        the code is written in javascript and structured in such a way that the user can follow along and
+                        understand the formula. 
+                    </p>
+                    <h3>Let's Run it</h3>
+                    <p>
+                        This is where we execute the code we've been talking about. The instructions will get displayed in text form based on the order of the buttons pressed.
+                    </p>
+                </section>
+                
+
+                <!--Section 2-->
+                <section id="rules" class="page">
+                    <div id=rulesTitle>
+                        <h1 class="title">Rules</h1>
+                    </div>
+
+                    <div id="rule1">
+                        <div class="image">
+                            <img src="./img/Rule_1.png" width="300">
+                        </div>
+                        <div class="text">
+                            <h2>Rule 1: There Are 9 Unique Values</h2>
+                        </div>
+                    </div>
+                    <div id="rule2">
+                        <div class="image">
+                            <img src="./img/Rule_2.png" width="300">  
+                        </div>
+                        <div class="text">
+                            <h2>Rule 2: You can't go go to the same spot twice</h2>
+                        </div>
+                    </div>
+                    <div id="rule3">
+                        <div class="image">
+                            <img src="./img/Rule_3b.png" width="300">
+                        </div>
+                        <h2>Rule 3: It is illegal to intersect an uninhabited spot</h2>
+                    </div>
+                    <div id="rule4">
+                        <div class="image">
+                            <img src="./img/Rule_4b.png" width="300">
+                        </div>
+                        <h2>Rule 4: One can intersect a point ONLY if it has already been occupied</h2>
+                    </div>
+                    <div id="rule5">
+                        <div class="image">
+                            <div><img src="./img/Rule_5a.png" width="300"></div>
+                            <div><img src="./img/Rule_5b.png" width="300"></div>
+                        </div>
+                        <h2>Rule 5: A correct combination needs to be between 4 values and 9 values</h2>
+                    </div>
+                </section>
+
+                
+                <!--Section 3-->
+                <section id="algorithm" class="page">
+                    <div id="algorithmTitle">
+                        <h1>The Algorithm</h1>
+                        <h2>aka: How to sort the combinations to get all the possible patterns</h2>
+                    </div>
+                    <div id="steps">
+                        <h2>List of steps needed to get the algorithm</h2>
+                        <ol>
+                            <li>Creating the bounds for our program</li>
+                            <li>Determining if 1 point can go to another point</li>
+                            <li>Creating a function that returns all possible points from a given instruction</li>
+                            <li>Create a recursive function to cycle through the combinations</li>
+                        </ol>
+                    </div>
+                    <div id="step1">
+                        <h2>1) Creating the bounds for our program</h2>
+                        <img src="./img/Label_Points.png" width="250">
+                        <p>
+                            First thing we're going to take each point and give it a value as the combination of the x value and the y value. 
+                        </p>
+                    </div>
+                    <div id="step2">
+                        <h2>2) Determining if 1 point can go to another point</h2>
+                        <p>
+                            This might be the most important step of the entire algorithm. I had to define the extra function, <i>pointInArray()</i>,
+                            that just tells if a list of points has a specific point in it. Then the function <i>canGo()</i> just takes a point where 
+                            you want to go, and given the instructions you have gone so far, what points can you go from there. 
+                        </p>
+                        <h3>The only 2 things <i>canGo()</i> is really checking for:</h3>
+                        <ol>
+                            <li>If the point is already taken</li>
+                            <li>If the midpoint is a whole coordinate that's still not taken</li>
+                        </ol>
+                        <h3>If any of these things are true, <i>canGo()</i> is going to return false</h3>
+                        <div class="coding">
+                            <div id="codeNumbering1" class="codeNum">
+                                <!--Filled Numbering by javascript-->
+                            </div>
+                            <div class="codeBlock id="codeSample1">                  
+<pre id=codeblock1>
+<span style="color:blue">function</span> pointInArray(arr1, arr2) { 
+    <span style="color: blue">for</span> (<span style="color: blue">let</span> i = <span style="color: green">0</span>; i < arr2.length; i++){
+        <span style="color: blue">if</span> (arr2[i][<span style="color: green">0</span>] == arr1[<span style="color: green">0</span>] && arr2[i][<span style="color: green">1</span>] == arr1[<span style="color: green">1</span>])
+        {<span style="color: blue">return true</span>;}
+    }
+    <span style="color: blue">return false</span>;
+}
+<span style="color: blue">function</span> canGo(toPoint, instructions) {
+    <span style="color: blue">let</span> fromPoint = instructions[instructions.length-<span style="color: green">1</span>];
+    <span style="color: grey">//Make sure we haven't already been to this point</span>                         
+    <span style="color: blue">if</span> (pointInArray(toPoint, instructions))
+        {<span style="color: blue">return false</span>;}
+    <span style="color: grey">//Get midpoint</span>
+    <span style="color: blue">let</span> tmpX = (fromPoint[<span style="color: green">0</span>] + toPoint[<span style="color: green">0</span>]) / <span style="color: green">2</span>;
+    <span style="color: blue">let</span> tmpY = (fromPoint[<span style="color: green">1</span>] + toPoint[<span style="color: green">1</span>]) / <span style="color: green">2</span>;
+    <span style="color: grey">//Make sure the midpoint values are whole numbers</span>
+    <span style="color: blue">if</span> (tmpX === Math.floor(tmpX) && tmpY === Math.floor(tmpY)){
+        <span style="color: grey">//If the midpoint is not taken</span>
+        <span style="color:blue">if</span> (!pointInArray([tmpX, tmpY], instructions))
+        {<span style="color: blue">return false</span>;}
+    }
+    <span style="color: blue">return true</span>;
+}
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step3">
+                        <h2>3) Creating a function that returns all possible points from a given instruction</h2>
+                        <p>
+                            This is just a function that uses the canGo() function we defined above to loop through 
+                            all the points and return a list of available points we are legally able to go to.
+                        </p>
+                        <div class="coding">
+                            <div id="codeNumbering2" class="codeNum">
+                                <!--Filled By javascript-->
+                            </div>
+                            <div class="codeBlock" id="codeSample2">
+<pre id=codeBlock2>
+<span style="color: blue">function</span> getPoints(instructions) {
+    <span style="color: blue">let</span> tmpArray = [];
+    <span style="color: blue">for</span> (<span style="color: blue">let</span> x = <span style="color: green">0</span>; x < <span style="color: green">3</span>; x++){
+        <span style="color: blue">for</span> (<span style="color: blue">let</span> y = <span style="color: green">0</span>; y < <span style="color: green">3</span>; y++){
+            <span style="color: blue">if</span> (canGo([x, y], instructions)){
+                tmpArray.push([x, y]);
+            }
+        }
+    }
+    <span style="color: blue">return</span> tmpArray;
+}
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="step4">
+                        <h2>4) Create a recursive function to cycle through the combinations</h2>
+                        <p>
+                            The reason we're using recursion instead of an iterative process is because the maximum depth can only get to at most 9 calls.
+                            With this function we will use the <i>bruteforce()</i> function to get us started but most the meat is done in the <i>bruteforce_helper()</i>
+                            function. Here we're going to be defining a global variable <i>totalCombinations</i>, which is a list that will hold all the instructions 
+                            that used 4 or more values.
+                        </p>
+                    <div class="coding">
+                        <div id="codeNumbering3" class="codeNum">
+                            <!--Filled By javascript-->
+                        </div>
+                        <div class="codeBlock" id="codeSample3">
+<pre id="codeBlock3">
+<span style="color: blue">let</span> totalCombinations = [];
+<span style="color: blue">function</span> bruteforce_helper(instructions){
+    <span style="color: blue">let</span> cyclePoints = getPoints(instructions);
+    <span style="color: blue">if</span> (instructions.length > <span style="color: green"> 3</span>) {
+        totalCombinations.push(instructions.slice());
+    }
+    <span style="color: blue">for</span> (<span style="color: blue">let</span> i = <span style="color: green">0</span>; i < cyclePoints.length; i++) {
+        instructions.push(cyclePoints[i]);
+        bruteforce_helper(instructions);
+        instructions.pop();
+    }
+    <span style="color: grey">//Base case, returns if length is 9 or done cycling through cyclePoints</span>
+    return
+}
+<span style="color: blue">function</span> bruteforce() {
+    <span style="color: blue">for</span> (<span style="color: blue">let</span> x = <span style="color: green">0</span>; x < <span style="color: green">3</span>; x++){
+        <span style="color: blue">for</span> (<span style="color: blue">let</span> y = <span style="color: green">0</span>; y < <span style="color: green">3</span>; y++){
+            bruteforce_helper([[x, y]])
+        }
+    }
+}
+bruteforce()
+</pre>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+
+
+                <!--Section 4-->
+                <section id="display" class="page">
+                    <h1>Running and Displaying the Patterns</h1>
+                    <div id="patternBoard">
+
+                        <img src="./img/Label_Points.png" width="350">
+                        <h2>A complete list of all the instructions. Click one to see the ordered list of pattern combinations</h2>
+                        <div id="buttonList">
+                            <!--Filled by javascript-->
+                        </div>
+                        <h2>All combinations will appear below this</h2>
+                        <div id="patternList">
+                            <!--Filled by javascript-->
+                        </div>
+
+                    </div>
+                </section>
+            </main>
+            <nav id="menu">
+                <div id=menuOptions>
+                    <div class="nav1"><button onclick="openMenu()">Menu</button></div>
+                    <div class="nav2"><button onclick="openRules()">Rules</button></div>
+                    <div class="nav3"><button onclick="openAlgorithm()">Algorithm</button></div>
+                    <div class="nav4"><button onclick="openRunIt()">Let's Run It</button></div>
+                </div>
+                <div id="pill"></div>
+            </nav>
+            <footer>Pattern Lock</footer>
+        </div>            
+    </body>        
+    <script type="text/javascript" src="./js/main.js"></script>
+
+</html>

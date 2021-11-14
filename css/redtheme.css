@@ -1,0 +1,58 @@
+/*
+    RED THEME
+    change the font to white
+    Page -> red
+    nav -> red
+    font -> white
+    change shadow to img to white shadow
+    theme button has shadow around it
+
+    In the coding page I had to give the code a white background
+    and change the left (red) indent to blue
+*/
+body {
+    color: white;
+}
+header {
+    color: black;
+}
+
+header #themeToggle button {
+    background-color: white;
+    box-shadow: 0px 0px 20px black;
+    color: black;
+}
+
+h2 {
+    color: white;
+}
+h3 {
+    color: white;
+}
+#rules h2 {
+    color: white;
+}
+
+img {
+    box-shadow: 0px 0px 20px white;
+}
+
+nav {
+    background-color: red;
+}
+#menu button{
+    color: white;
+}
+
+#rules > * {
+    background-color: red;
+}
+.page {
+    background-color: red;
+}
+
+.coding {
+    color: black;
+    border-left: 5px solid blue;
+    background-color: white;
+}

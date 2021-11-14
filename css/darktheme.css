@@ -1,0 +1,66 @@
+/*
+    DARK THEME
+    overall background color to dark gray
+    page color to lighter grey
+    font color -> white
+    main title -> blue
+    Added radius to center video and white shadow.
+    Theme circles -> white shadow
+    toggle themes button -> blue background, white font 
+*/
+
+body {
+    color: white;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+
+header {
+    color: #9caaff;
+}
+
+header #themeToggle button {
+    background-color: #00053d;
+    color: white;
+}
+
+h2 {
+    color: grey;
+}
+h3 {
+    color: grey;
+}
+#rules h2 {
+    color: white;
+}
+
+nav {
+    background-color: #242424;
+}
+#menu button{
+    color: white;
+}
+#content {
+    background-color: #0f0f0f;
+}
+#rules > * {
+    background-color: #242424;
+}
+.page {
+    background-color: #242424;
+}
+header #themeToggle #displayThemes *{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+
+    box-shadow: 0px 0px 5px grey;
+}
+
+iframe {
+    border-radius: 10%;
+
+    box-shadow: 0px 0px 10px white;
+}

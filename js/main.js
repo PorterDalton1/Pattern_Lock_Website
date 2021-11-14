@@ -8,6 +8,55 @@ let page = document.getElementsByClassName("page");
 let pos = 9;
 
 var id=null;
+var theme = "white";
+
+//Toggles between the 4 website themes
+function toggleTheme()
+{
+    if (theme === "white")
+    {        
+        $("#lightTheme").width( 25 );
+        $("#lightTheme").height( 25 );
+        $("#redTheme").width( 20 );
+        $("#redTheme").height( 20 );
+        $('link[rel="stylesheet"][href="./css/darktheme.css"]').attr('disabled', 'disabled');
+        $('link[rel="stylesheet"][href="./css/bluetheme.css"]').attr('disabled', 'disabled');
+        $('link[rel="stylesheet"][href="./css/redtheme.css"]').attr('disabled', 'disabled');
+        theme = "black";
+    } else if (theme === "black") {
+        //Resize the circles to show which one is active
+        $("#darkTheme").width( 25 );
+        $("#darkTheme").height( 25 );
+        $("#lightTheme").width( 20 );
+        $("#lightTheme").height( 20 );
+
+        //Only activate the style being used
+        $('link[rel="stylesheet"][href="./css/darktheme.css"]').removeAttr('disabled');
+        $('link[rel="stylesheet"][href="./css/bluetheme.css"]').attr('disabled', 'disabled');
+        $('link[rel="stylesheet"][href="./css/redtheme.css"]').attr('disabled', 'disabled');
+        theme = "blue";
+    } else if (theme === "blue") {
+        $("#blueTheme").width( 25 );
+        $("#blueTheme").height( 25 );
+        $("#darkTheme").width( 20 );
+        $("#darkTheme").height( 20 );
+        $('link[rel="stylesheet"][href="./css/bluetheme.css"]').removeAttr('disabled');
+        $('link[rel="stylesheet"][href="./css/darktheme.css"]').attr('disabled', 'disabled');
+        $('link[rel="stylesheet"][href="./css/redtheme.css"]').attr('disabled', 'disabled');
+        theme = "red";
+    } else /*red*/{
+        $("#redTheme").width( 25 );
+        $("#redTheme").height( 25 );
+        $("#blueTheme").width( 20 );
+        $("#blueTheme").height( 20 );
+        $('link[rel="stylesheet"][href="./css/redtheme.css"]').removeAttr('disabled');
+        $('link[rel="stylesheet"][href="./css/darktheme.css"]').attr('disabled', 'disabled');
+        $('link[rel="stylesheet"][href="./css/bluetheme.css"]').attr('disabled', 'disabled');
+        theme = "white";
+    }
+}
+toggleTheme()
+
 //Function that animates the pill across the top of the screen
 function animateTo(option, from)
 {
@@ -121,8 +170,6 @@ for (let i = 0; i < 22; i++) {
 openMenu(); //Initial position for the pill and the homepage
 
 
-
-
 //These next sessions were used in the examples and to calculate the formulas--------
 function pointInArray(arr1, arr2) {
     for (let i = 0; i < arr2.length; i++){
@@ -206,19 +253,40 @@ function setBetterLayout(listFun)
     return tmpStr;
 }
 
+
+function openImages(fileNames) {
+    $("#displayPatterns img").remove();
+    for (var i = 0; i < fileNames.length; i+=2)
+    {
+        part1 = fileNames[i].toString() + fileNames[i+1].toString();
+        part2 = fileNames[i+2].toString() + fileNames[i+3].toString();
+        $( "#displayPatterns" ).append( '<img src="./img/patterns/' + part1 + '_' + part2 + '.png">' );
+        if (i + 5 == fileNames.length)
+        {
+            break;
+        }
+    }
+}
+
+
 //This function displays the instructions on patternList
 function fillCombos(start, stop) {
     while (document.getElementById("patternList").firstChild){
         document.getElementById("patternList").removeChild(document.getElementById("patternList").firstChild);
     }
-    let counter = 0
+    let counter = 0;
+    let tmpStart = start + 1;
     let tmpCombos = [];
     let ulItem = document.createElement("ol");
-    ulItem.setAttribute("start", start.toString());
+    ulItem.setAttribute("start", tmpStart.toString());
     for (let i = start; i < stop; i++)
     {
-        tmpCombos.push(document.createElement("li"))
-        tmpCombos[counter].innerHTML = setBetterLayout(totalCombinations[i]);
+        tmpCombos.push(document.createElement("li"));
+        tmpButton = document.createElement("button");
+        tmpButton.innerHTML = setBetterLayout(totalCombinations[i]);
+        //tmpCombos[counter].innerHTML = setBetterLayout(totalCombinations[i]);
+        tmpButton.setAttribute("onclick", "openImages([" + totalCombinations[i] + "])");
+        tmpCombos[counter].appendChild(tmpButton);
         ulItem.appendChild(tmpCombos[counter]);
         counter += 1;
     }
@@ -229,12 +297,14 @@ function fillCombos(start, stop) {
 function createComboButtons(){
     let tmp = 0
     tmpButtons = [];
-    for (let i = 0; i < 150; i++)
+    let numButtons = 186;
+    let numRange = 389112 / numButtons;
+    for (let i = 0; i < numButtons; i++)
     {
-        tmp = 2594 * i;
+        tmp = numRange * i;
         tmpButtons.push(document.createElement("button"))
-        tmpButtons[i].innerHTML = (tmp).toString() + "-" + (2594 * (i+1)-1).toString();
-        tmpButtons[i].setAttribute("onclick", "fillCombos("+(tmp).toString()+", "+(2594*(i+1)).toString()+")");
+        tmpButtons[i].innerHTML = (tmp+1).toString() + "-" + (numRange * (i+1)).toString();
+        tmpButtons[i].setAttribute("onclick", "fillCombos("+(tmp).toString()+", "+(numRange*(i+1)).toString()+")");
         document.getElementById("buttonList").appendChild(tmpButtons[i]);
     }
 }

@@ -22,39 +22,59 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="./css/main.css"> 
+        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/darktheme.css">
+        <link rel="stylesheet" href="./css/redtheme.css">
+        <link rel="stylesheet" href="./css/bluetheme.css">
     </head>
     <title>Pattern Lock</title>
     <body>
         <div id="content">
             <header>
-                <video width="200" height="200" autoplay="1" muted style="pointer-events: none;">
-                    <source src="./video/Pattern_black_on_white_fin.mp4">
-                </video>
-                <div>Cracking the Pattern Lock</div>
+                <div id="themeToggle">
+                    
+                    
+                    <div id="displayThemes">
+                        <div id="lightTheme"></div> 
+                        <div id="darkTheme"></div>
+                        <div id="blueTheme"></div> 
+                        <div id="redTheme"></div>
+                    </div>
+                    
+                    
+                    <button onclick="toggleTheme()">Toggle Theme</button>
+                </div>
+                <div id="titleAndAnimation">
+                    <iframe src="https://player.vimeo.com/video/632642400?h=42887d1c12?muted=1?background=1" width="250" height="250" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+                    <div>Cracking the Pattern Lock</div>
+                </div>
+                <div id="emptyDiv"></div>
             </header>
             <main>
                 <!--Section 1-->
                 <section id="menuPage" class="page">
-                    <h1>Menu</h1>
-                    <h2>About this Website</h2>
-                    <p>This website is an exploration on how to get all possible combinations of a 3x3 pattern lock.</p>
+                    <h1>A Website Dedicated to Calculating and Displaying Pattern Lock Combinations</h1>
+                    <h2>Wait? Did you say displaying?</h2>
+                    <p>Heck yeah I did. If you go to <i>Let's Run It</i>, at the top bar and scroll all the way down and click buttons, you can see magic
+                    that took me way too freaking long.</p>
+                    <h2>Is that 4 themes I see on the top left of the website right under the navigation bar?</h2>
+                    <p>Yep! That took me a while too</p>
                     <img src="./img/lock.png">
-                    <h2>Sections in the Website</h2>
+                    <h2>Everything About this Website</h2>
                     <h3>Rules</h3>
                         <p>
-                            This goes over the restrictions pattern locks face compared to other combination locks. There 
-                            are basic graphics to help guide the user and help them understand how pattern locks work.
+                            This goes over the restrictions pattern locks face compared to other combination locks. If you have never heard of a pattern
+                            lock before, this will be a great starting point.
                         </p>
-                    <h3>Algorithm</h3>
+                    <h3>Algorithm. AKA, me showing off my code</h3>
                     <p>
-                        This part of the website goes in depth on how to cycle through every pattern lock combination. All
-                        the code is written in javascript and structured in such a way that the user can follow along and
-                        understand the formula. 
+                        Heck yeah! I didn't write all that code to do nothing with it. You can scroll through and see how I came up with the algorithm to 
+                        cycle through all the pattern locks.
                     </p>
                     <h3>Let's Run it</h3>
                     <p>
-                        This is where we execute the code we've been talking about. The instructions will get displayed in text form based on the order of the buttons pressed.
+                        This section took me freaking hours. If you see nothing else, at least go see this part. The patterns at the bottom are drawn by
+                        stacking multiple transparent images on top of another. I created the images by using the PIL library in Python. 
                     </p>
                 </section>
                 
@@ -137,7 +157,7 @@
                             <li>If the point is already taken</li>
                             <li>If the midpoint is a whole coordinate that's still not taken</li>
                         </ol>
-                        <h3>If any of these things are true, <i>canGo()</i> is going to return false</h3>
+                        <p>If any of these things are true, <i>canGo()</i> is going to return false</p>
                         <div class="coding">
                             <div id="codeNumbering1" class="codeNum">
                                 <!--Filled Numbering by javascript-->
@@ -241,7 +261,9 @@ bruteforce()
                 </section>
 
 
-                <!--Section 4-->
+
+                <!--Section 4--> <!--"-->
+
                 <section id="display" class="page">
                     <h1>Running and Displaying the Patterns</h1>
                     <div id="patternBoard">
@@ -251,9 +273,13 @@ bruteforce()
                         <div id="buttonList">
                             <!--Filled by javascript-->
                         </div>
-                        <h2>All combinations will appear below this</h2>
+                        <h2>More buttons will appear below this. Yes, the buttons above this created more buttons below it</h2>
                         <div id="patternList">
                             <!--Filled by javascript-->
+                        </div>
+                        <div id="displayPatterns" style="position:relative">
+                            <!--Filled by javascript-->
+                            <div id="displayBackground"></div>
                         </div>
 
                     </div>
@@ -261,16 +287,17 @@ bruteforce()
             </main>
             <nav id="menu">
                 <div id=menuOptions>
-                    <div class="nav1"><button onclick="openMenu()">Menu</button></div>
-                    <div class="nav2"><button onclick="openRules()">Rules</button></div>
-                    <div class="nav3"><button onclick="openAlgorithm()">Algorithm</button></div>
-                    <div class="nav4"><button onclick="openRunIt()">Let's Run It</button></div>
+                    <div class="nav"><button onclick="openMenu()">Menu</button></div>
+                    <div class="nav"><button onclick="openRules()">Rules</button></div>
+                    <div class="nav"><button onclick="openAlgorithm()">Algorithm</button></div>
+                    <div class="nav"><button onclick="openRunIt()">Let's Run It</button></div>
                 </div>
                 <div id="pill"></div>
             </nav>
             <footer>Pattern Lock</footer>
         </div>            
-    </body>        
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--Add Jquery-->       
     <script type="text/javascript" src="./js/main.js"></script>
 
 </html>

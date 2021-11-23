@@ -170,17 +170,6 @@ function openRunIt()
     $("#logVisit").hide();
     $("#thankYouPage").hide();
 }
-function openThankYou()
-{
-    animateTo(4);
-    $("#menuPage").hide();
-    rules.setAttribute("style", "display:none !important"); //This won't work otherwise ¯\_(ツ)_/¯
-    $("#algorithm").hide();
-    $("#display").hide();
-    $("#logVisit").hide();
-    $("#thankYouPage").show();
-}
-
 //These next 3 sections are for numbering the code blocks----------------------
 let newDivLettering = [];
 for (let i = 0; i < 23; i++) {

@@ -55,8 +55,6 @@ function validateForm() {
 function validateState(id, msg){
     $el = $(id);
     let valid=false;
-    //TODO
-    //$el.val($(this).val().toUpperCase());
     
     if ($.inArray($el.val($(this).val().toUpperCase()), stateAbbreviations))
     {
@@ -92,4 +90,18 @@ function setElementValidity(fieldName, valid, message){
      
     }
     //TODO  insert or remove message in error div for element
+}
+function openThankYou()
+{
+    $("input").click(function(event){
+        event.preventDefault();
+
+    });
+
+    $("#menuPage").hide();
+    rules.setAttribute("style", "display:none !important"); //This won't work otherwise ¯\_(ツ)_/¯
+    $("#algorithm").hide();
+    $("#display").hide();
+    $("#logVisit").hide();
+    $("#thankYouPage").show();
 }

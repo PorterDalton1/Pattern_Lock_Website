@@ -10,7 +10,7 @@ const stateAbbreviations = [
 ];
            
 function initValidation(formName) {
-  
+
     let $form = $(formName);
   
     $('form :input').change(function(ev){
@@ -29,13 +29,17 @@ function initValidation(formName) {
         event.preventDefault();  //prevent default browser submit
         event.stopPropagation(); //stop event bubbling
   
-        validateForm();
   
         if (!formEl.checkValidity()){
             $(":input").addClass("was-validated")
         }
         else{
-            $form.hide();
+            
+            $("#menuPage").hide();
+            rules.setAttribute("style", "display:none !important"); //This won't work otherwise ¯\_(ツ)_/¯
+            $("#algorithm").hide();
+            $("#display").hide();
+            $("#logVisit").hide();
             $("#thankYouPage").show();
         }
      
@@ -97,11 +101,4 @@ function openThankYou()
         event.preventDefault();
 
     });
-
-    $("#menuPage").hide();
-    rules.setAttribute("style", "display:none !important"); //This won't work otherwise ¯\_(ツ)_/¯
-    $("#algorithm").hide();
-    $("#display").hide();
-    $("#logVisit").hide();
-    $("#thankYouPage").show();
 }

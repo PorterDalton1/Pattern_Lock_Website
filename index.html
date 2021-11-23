@@ -288,17 +288,17 @@ bruteforce()
                 </section>
                 <section id="logVisit" class="page">
                     <h1>Visitor Form</h1>
-                    <form id="myform">
+                    <form id="myform" onsubmit='initValidation("#myform")'>
                         <div>
                             <label for="first-name">First name:</label>
-                            <input type="text" pattern="string" id="first-name" name="first-name" placeholder="First Name"><br>
+                            <input type="text" id="first-name" name="first-name" placeholder="First Name"><br>
                             <div class="errorMsg" id="errorMsgfname">Error! Names can't hold any numbers</div>
                         </div>
                         <br>
 
                         <div>
                             <label for="last-name">Last name:</label>
-                            <input type="text" pattern="string" id="last-name" name="last-name" placeholder="Last Name"><br>
+                            <input type="text" id="last-name" name="last-name" placeholder="Last Name"><br>
                             <div class="errorMsg" id="errorMsglname">Error! Names can't hold any numbers</div>
                         </div>
                         <br>

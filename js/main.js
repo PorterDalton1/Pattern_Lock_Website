@@ -1,14 +1,16 @@
-let menuPage = document.getElementById("menuPage");
-let rules = document.getElementById("rules");
-let code = document.getElementById("algorithm")
-let display = document.getElementById("display");
-let page = document.getElementsByClassName("page");
+/*
+I got a lot of the basic stuff switched over to jQuery but I wasn't able to get everything.
+*/
+
+
 
 //Initial place for animated pill 
 let pos = 9;
 
 var id=null;
 var theme = "white";
+
+$(".errorMsg").hide()
 
 //Toggles between the 4 website themes
 function toggleTheme()
@@ -107,41 +109,76 @@ function animateTo(option, from)
     }
 }
 
+/*
+let menuPage = document.getElementById("menuPage");
+let rules = document.getElementById("rules");
+let code = document.getElementById("algorithm")
+let display = document.getElementById("display");
+let page = document.getElementsByClassName("page");
+*/
 //These next 4 functions work with navigating the website
 function openMenu()
 {
     animateTo(1);
-    menuPage.style.display = "block";
-    rules.setAttribute("style", "display:none !important");
-    code.style.display = "none";
-    display.style.display = "none";
+    $("#menuPage").show();
+    $("#thankYouPage").hide();
+    rules.setAttribute("style", "display:none !important"); //This won't work otherwise ¯\_(ツ)_/¯
+    $("#algorithm").hide();
+    $("#display").hide();
+    $("#logVisit").hide();
 }
 
 function openRules()
 {
     animateTo(2);
-    menuPage.style.display = "none";
-    rules.style.display = "block";
-    code.style.display = "none";
-    display.style.display = "none";
+    $("#menuPage").hide();
+    $("#rules").show();
+    $("#algorithm").hide();
+    $("#display").hide();
+    $("#logVisit").hide();
+    $("#thankYouPage").hide();
 }
 
 function openAlgorithm()
 {
     animateTo(3);
-    menuPage.style.display = "none";
-    rules.setAttribute("style", "display:none !important");
-    code.style.display = "block";
-    display.style.display = "none";
+    $("#menuPage").hide();
+    rules.setAttribute("style", "display:none !important"); //This won't work otherwise ¯\_(ツ)_/¯
+    $("#algorithm").show();
+    $("#display").hide();
+    $("#logVisit").hide();
+    $("#thankYouPage").hide();
+}
+
+function openForm()
+{
+    $("#menuPage").hide();
+    rules.setAttribute("style", "display:none !important"); //This won't work otherwise ¯\_(ツ)_/¯
+    $("#algorithm").hide();
+    $("#display").hide();
+    $("#logVisit").show();
+    $("#thankYouPage").hide();
 }
 
 function openRunIt()
 {
     animateTo(4);
-    menuPage.style.display = "none";
-    rules.setAttribute("style", "display:none !important");
-    code.style.display = "none";
-    display.style.display = "block";
+    $("#menuPage").hide();
+    rules.setAttribute("style", "display:none !important"); //This won't work otherwise ¯\_(ツ)_/¯
+    $("#algorithm").hide();
+    $("#display").show();
+    $("#logVisit").hide();
+    $("#thankYouPage").hide();
+}
+function openThankYou()
+{
+    animateTo(4);
+    $("#menuPage").hide();
+    rules.setAttribute("style", "display:none !important"); //This won't work otherwise ¯\_(ツ)_/¯
+    $("#algorithm").hide();
+    $("#display").hide();
+    $("#logVisit").hide();
+    $("#thankYouPage").show();
 }
 
 //These next 3 sections are for numbering the code blocks----------------------
@@ -284,7 +321,6 @@ function fillCombos(start, stop) {
         tmpCombos.push(document.createElement("li"));
         tmpButton = document.createElement("button");
         tmpButton.innerHTML = setBetterLayout(totalCombinations[i]);
-        //tmpCombos[counter].innerHTML = setBetterLayout(totalCombinations[i]);
         tmpButton.setAttribute("onclick", "openImages([" + totalCombinations[i] + "])");
         tmpCombos[counter].appendChild(tmpButton);
         ulItem.appendChild(tmpCombos[counter]);
@@ -295,7 +331,7 @@ function fillCombos(start, stop) {
 
 //This creates all the buttons that you can pick between to display the values
 function createComboButtons(){
-    let tmp = 0
+    let tmp = 0;
     tmpButtons = [];
     let numButtons = 186;
     let numRange = 389112 / numButtons;
@@ -308,7 +344,4 @@ function createComboButtons(){
         document.getElementById("buttonList").appendChild(tmpButtons[i]);
     }
 }
-
-
-
 createComboButtons();

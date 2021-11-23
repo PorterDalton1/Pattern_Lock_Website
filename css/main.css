@@ -106,9 +106,17 @@ header #titleAndAnimation {
     grid-column-end: span 1;
 }
 
-header .emptyDiv {
+header #logVisitButton {
     grid-column-start: 3;
     grid-column-end: span 1;
+}
+header #logVisitButton button {
+    font-size: 20pt;
+    height: 50px;
+    width: 175px;
+    color: gray;
+    border-radius: 12px;
+    border-width: 1px;
 }
 
 main{
@@ -296,6 +304,29 @@ img {
 footer{
     grid-area: footer;
 }
+input.was-validated:invalid {
+    color: red;
+    border: 1px solid red;
+}
+
+.errorMsg {
+    color: red;
+}
+
+#logVisit form > div{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+#logVisit form div > label {
+    font-size: 20px;
+}
+#logVisit form div > input {
+    font-size: 15px;
+    box-shadow: 5px 5px 10px black;
+    border-radius: 5px;
+}
+
 
 /* desktop grid */
 @media screen and (min-width: 760px){

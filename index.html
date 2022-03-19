@@ -3,13 +3,12 @@
     this assignment. I made many assets (pictures and videos), many of which didn't make it in. At first when
     I began this project I had too many ideas. 
     
-    First of all I wanted the last section "Running and Displaying  the Patterns" to include a 3x3 grid where 
-    when you clicked on one of the instructions, it would draw the instruction on a board for you. I was making 
-    good progress on that but eventually I realized that the work that needed to be done for that just wasn't 
-    feasible with the amount of time I had.
+    First of all, getting the pattern locks to display easily took 10+ hours.
 
     Second, when I was half of the way through I realized my general format wasn't too great, so I took a couple
-    hours just to make sure the formatting made more since.
+    hours just to make sure the formatting made more sense.
+
+    Third, lots of the assets used for this project were created by python.
 
     And lastly, my biggest mistake of all that took WAY too much time was the code blocks in the "algorithm"
     section. I looked forever but I couldn't find a way to get javascript to loop through a tag to detect and
@@ -45,11 +44,9 @@
                     <button onclick="toggleTheme()">Toggle Theme</button>
                 </div>
                 <div id="titleAndAnimation">
+                    <!-- I created the video by using python's turtle library-->
                     <iframe src="https://player.vimeo.com/video/632642400?h=42887d1c12?muted=1?background=1" width="250" height="250" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
                     <div>Cracking the Pattern Lock</div>
-                </div>
-                <div id="logVisitButton">
-                    <button onclick="openForm()">Log Visit</button>
                 </div>
             </header>
             <main>
@@ -272,6 +269,7 @@ bruteforce()
 
                         <img src="./img/Label_Points.png" width="350">
                         <h2>A complete list of all the instructions. Click one to see the ordered list of pattern combinations</h2>
+                        
                         <div id="buttonList">
                             <!--Filled by javascript-->
                         </div>
@@ -285,86 +283,6 @@ bruteforce()
                         </div>
 
                     </div>
-                </section>
-                <section id="logVisit" class="page">
-                    <h1>Visitor Form</h1>
-                    <form id="myform" onsubmit='initValidation("#myform")'>
-                        <div>
-                            <label for="first-name">First name:</label>
-                            <input type="text" id="first-name" name="first-name" placeholder="First Name"><br>
-                            <div class="errorMsg" id="errorMsgfname">Error! Names can't hold any numbers</div>
-                        </div>
-                        <br>
-
-                        <div>
-                            <label for="last-name">Last name:</label>
-                            <input type="text" id="last-name" name="last-name" placeholder="Last Name"><br>
-                            <div class="errorMsg" id="errorMsglname">Error! Names can't hold any numbers</div>
-                        </div>
-                        <br>
-
-                        <div>
-                            <label for="address">Address:</label>
-                            <input type="text" id="address" name="address" placeholder="Address"><br>
-                            <div class="errorMsg" id="errorMsgaddress">You must enter a valid address</div>
-                        </div>
-                        <br>
-
-                        <div>
-                            <label for="city">City:</label>
-                            <input type="text" id="city" name="city" placeholder="City"><br>
-                            <div class="errorMsg" id="errorMsgcity">You must enter a valid city</div>
-                        </div>
-                        <br>
-
-                        <div>
-                            <label for="state">State:</label>
-                            <input type="text" minlength="2" maxlength="2" id="state" name="state" placeholder="State"><br>
-                            <div class="errorMsg" id="errorMsgstate">You must enter a valid state with two letters. example: UT</div>
-                        </div>
-                        <br>
-
-                        <div>
-                            <label for="zip-code">Zip Code:</label>
-                            <input type="text" minlength="5" maxlength="5" id="zip-code" name="zip-code" placeholder="Zip Code"><br>
-                            <div class="errorMsg" id="errorMsgzip">You must enter a valid zip code</div>
-                        </div>
-                        <br>
-
-                        <div>
-                            <label for="cell-phone">Cell Phone Number:</label>
-                            <input type="text" minlength="10" maxlength="10" id="cell-phone" name="cell-phone" placeholder="(XXX) XXX-XXXX"><br>
-                            <div class="errorMsg" id="errorMsgnumber">You must enter a valid phone number</div>
-                        </div>
-                        <br>
-
-                        <div>
-                            <label for="email">Email Address:</label>
-                            <input type="email" id="email" name="email" placeholder="example@example.com"><br>
-                            <div class="errorMsg" id="errorMsgemail">You must enter a valid email address</div>
-                        </div>
-                        <br>
-
-                        <h2>How did you find my page?</h2>
-
-                                <input type="checkbox" name="find-page" value="duckduckgo" id="duckduckgo">
-                                <label for="duckduckgo">DuckDuckGo Search</label>
-                                <br><br>
-
-                                <input type="checkbox" name="find-page" value="friend" id="friend">
-                                <label for="friend">A Friend</label>
-                                <br><br>
-                            
-                                <input type="checkbox" name="find-page" value="newspaper" id="newspaper">
-                                <label for="newspaper">The News Paper</label>
-                                <div class="errorMsg">You must select at least one</div>
-                                <br><br>
-
-                        <input id="submitBtn" type='submit' onclick="openThankYou()">
-                    </form>
-                </section>
-                <section id="thankYouPage" class="page">
-                    <h1>Thank You!</h1>
                 </section>
             </main>
             <nav id="menu">
@@ -381,11 +299,5 @@ bruteforce()
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--Add Jquery-->       
     <script type="text/javascript" src="./js/main.js"></script>
-    <script type="text/javascript" src="./js/validation.js"></script>
-    <script>
-        $(document).ready(function() {
-            initValidation("#myform")
-        })
-    </script>
 
 </html>

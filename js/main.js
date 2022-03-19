@@ -1,9 +1,3 @@
-/*
-I got a lot of the basic stuff switched over to jQuery but I wasn't able to get everything.
-*/
-
-
-
 //Initial place for animated pill 
 let pos = 9;
 
@@ -121,11 +115,9 @@ function openMenu()
 {
     animateTo(1);
     $("#menuPage").show();
-    $("#thankYouPage").hide();
     rules.setAttribute("style", "display:none !important"); //This won't work otherwise ¯\_(ツ)_/¯
     $("#algorithm").hide();
     $("#display").hide();
-    $("#logVisit").hide();
 }
 
 function openRules()
@@ -135,8 +127,7 @@ function openRules()
     $("#rules").show();
     $("#algorithm").hide();
     $("#display").hide();
-    $("#logVisit").hide();
-    $("#thankYouPage").hide();
+    
 }
 
 function openAlgorithm()
@@ -146,8 +137,7 @@ function openAlgorithm()
     rules.setAttribute("style", "display:none !important"); //This won't work otherwise ¯\_(ツ)_/¯
     $("#algorithm").show();
     $("#display").hide();
-    $("#logVisit").hide();
-    $("#thankYouPage").hide();
+    
 }
 
 function openForm()
@@ -157,7 +147,7 @@ function openForm()
     $("#algorithm").hide();
     $("#display").hide();
     $("#logVisit").show();
-    $("#thankYouPage").hide();
+    
 }
 
 function openRunIt()
@@ -167,8 +157,7 @@ function openRunIt()
     rules.setAttribute("style", "display:none !important"); //This won't work otherwise ¯\_(ツ)_/¯
     $("#algorithm").hide();
     $("#display").show();
-    $("#logVisit").hide();
-    $("#thankYouPage").hide();
+    
 }
 //These next 3 sections are for numbering the code blocks----------------------
 let newDivLettering = [];

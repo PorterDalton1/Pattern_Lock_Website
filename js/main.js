@@ -13,13 +13,10 @@ function toggleTheme()
     {        
         $("#lightTheme").width( 25 );
         $("#lightTheme").height( 25 );
-        $("#redTheme").width( 20 );
-        $("#redTheme").height( 20 );
+
         $('link[rel="stylesheet"][href="./css/darktheme.css"]').attr('disabled', 'disabled');
-        $('link[rel="stylesheet"][href="./css/bluetheme.css"]').attr('disabled', 'disabled');
-        $('link[rel="stylesheet"][href="./css/redtheme.css"]').attr('disabled', 'disabled');
         theme = "black";
-    } else if (theme === "black") {
+    } else { // if (theme === "black") {
         //Resize the circles to show which one is active
         $("#darkTheme").width( 25 );
         $("#darkTheme").height( 25 );
@@ -28,26 +25,6 @@ function toggleTheme()
 
         //Only activate the style being used
         $('link[rel="stylesheet"][href="./css/darktheme.css"]').removeAttr('disabled');
-        $('link[rel="stylesheet"][href="./css/bluetheme.css"]').attr('disabled', 'disabled');
-        $('link[rel="stylesheet"][href="./css/redtheme.css"]').attr('disabled', 'disabled');
-        theme = "blue";
-    } else if (theme === "blue") {
-        $("#blueTheme").width( 25 );
-        $("#blueTheme").height( 25 );
-        $("#darkTheme").width( 20 );
-        $("#darkTheme").height( 20 );
-        $('link[rel="stylesheet"][href="./css/bluetheme.css"]').removeAttr('disabled');
-        $('link[rel="stylesheet"][href="./css/darktheme.css"]').attr('disabled', 'disabled');
-        $('link[rel="stylesheet"][href="./css/redtheme.css"]').attr('disabled', 'disabled');
-        theme = "red";
-    } else /*red*/{
-        $("#redTheme").width( 25 );
-        $("#redTheme").height( 25 );
-        $("#blueTheme").width( 20 );
-        $("#blueTheme").height( 20 );
-        $('link[rel="stylesheet"][href="./css/redtheme.css"]').removeAttr('disabled');
-        $('link[rel="stylesheet"][href="./css/darktheme.css"]').attr('disabled', 'disabled');
-        $('link[rel="stylesheet"][href="./css/bluetheme.css"]').attr('disabled', 'disabled');
         theme = "white";
     }
 }

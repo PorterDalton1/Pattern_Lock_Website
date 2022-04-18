@@ -10,6 +10,9 @@
 
     Put nav bar on side
     Deleted other themes
+    Removed page outline
+    
+    Project 
 
 */
 
@@ -102,9 +105,7 @@ iframe {
 
     box-shadow: 0px 0px 10px white;
 }
-#logVisit form div > input {
-    box-shadow: 5px 5px 10px grey;
-}
+
 .coding {
     color: black;
     border-left: 5px solid blue;
@@ -119,4 +120,22 @@ main .page{
  margin-right: 0%;
  background-color: #0f0f0f;
  box-shadow: none;
+}
+
+#logVisit form ul li label{
+    color: white;
+}
+input {
+    background-color: #0f0f0f;
+    color: white;
+    border: 1px solid white;
+}
+
+/*Input validation*/
+.errorMsg {
+    color: red;
+}
+
+input.was-validated:invalid {
+    border: 2px solid red;
 }

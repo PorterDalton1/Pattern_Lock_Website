@@ -95,6 +95,8 @@ function openMenu()
     rules.setAttribute("style", "display:none !important"); //This won't work otherwise ¯\_(ツ)_/¯
     $("#algorithm").hide();
     $("#display").hide();
+    $("#logVisit").hide();
+    $("#thankYouPage").hide();
 }
 
 function openRules()
@@ -104,7 +106,8 @@ function openRules()
     $("#rules").show();
     $("#algorithm").hide();
     $("#display").hide();
-    
+    $("#logVisit").hide();
+    $("#thankYouPage").hide();
 }
 
 function openAlgorithm()
@@ -114,6 +117,8 @@ function openAlgorithm()
     rules.setAttribute("style", "display:none !important"); //This won't work otherwise ¯\_(ツ)_/¯
     $("#algorithm").show();
     $("#display").hide();
+    $("#logVisit").hide();
+    $("#thankYouPage").hide();
     
 }
 
@@ -124,6 +129,7 @@ function openForm()
     $("#algorithm").hide();
     $("#display").hide();
     $("#logVisit").show();
+    $("#thankYouPage").hide();
     
 }
 
@@ -134,7 +140,8 @@ function openRunIt()
     rules.setAttribute("style", "display:none !important"); //This won't work otherwise ¯\_(ツ)_/¯
     $("#algorithm").hide();
     $("#display").show();
-    
+    $("#logVisit").hide();
+    $("#thankYouPage").hide();
 }
 //These next 3 sections are for numbering the code blocks----------------------
 let newDivLettering = [];
